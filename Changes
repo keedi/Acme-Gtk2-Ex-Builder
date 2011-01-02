@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - Add omitted version number
+    - Set encoding for document
 
 0.002     2011-01-02 05:10:43 Asia/Seoul
     - Update the documents
