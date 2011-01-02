@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - API changed due to name conflict with Moose
+        - 'with' -> 'contain'
+        - 'meta' -> 'info'
 
 0.004     2011-01-03 01:19:43 Asia/Seoul
     - API changed due to name conflict with Moose
