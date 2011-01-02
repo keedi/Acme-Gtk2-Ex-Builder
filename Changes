@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.004     2011-01-03 01:19:43 Asia/Seoul
     - API changed due to name conflict with Moose
         - 'has'    -> 'widget'
         - 'widget' -> 'find'
