@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - signal_connect: Allow additional data for callback
 
 0.005     2011-01-03 02:02:47 Asia/Seoul
     - API changed due to name conflict with Moose

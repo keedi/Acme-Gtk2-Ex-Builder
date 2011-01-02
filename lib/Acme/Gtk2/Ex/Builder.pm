@@ -106,12 +106,13 @@ sub build (&) {
             $self->{_info}{$self->_current}{$key} = \@values;
         };
  
-        local *_on = sub ($&) {
+        local *_on = sub {
             my $signal = shift;
             my $_code  = shift;
+            my $data   = shift;
  
             if ($self->_current) {
-                $self->_current->signal_connect( $signal => $_code );
+                $self->_current->signal_connect( $signal => $_code, $data );
             }
         };
  
