@@ -150,7 +150,6 @@ sub on   { goto &_on   }
 sub set  { goto &_set  }
 
 1;
-
 __END__
 
 =head1 SYNOPSIS
