@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - API changed due to name conflict with Moose
+        - 'has'    -> 'widget'
+        - 'widget' -> 'find'
 
 0.003     2011-01-02 15:22:50 Asia/Seoul
     - Add omitted version number
