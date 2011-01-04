@@ -2,6 +2,7 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
     - Update the documents
+    - Add Gtk2::Calendar example
 
 0.007     2011-01-04 11:26:27 Asia/Seoul
     - Remove needless 'require' statement
