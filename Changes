@@ -1,8 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - Support setting property of widget: add 'prop' API
     - Update the documents
-    - Add Gtk2::Calendar example
+    - Add examples
+        - Gtk2::Window
+        - Gtk2::Calendar
 
 0.007     2011-01-04 11:26:27 Asia/Seoul
     - Remove needless 'require' statement
