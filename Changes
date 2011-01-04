@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.008     2011-01-05 03:00:12 Asia/Seoul
     - Support setting property of widget: add 'prop' API
     - Update the documents
     - Add examples
