@@ -11,6 +11,7 @@ our @EXPORT  = qw(
     contain
     info
     on
+    prop
     set
     widget
 );
@@ -124,6 +125,16 @@ sub build (&) {
                 $self->_current->$method(@para);
             }
         };
+
+        local *_prop = sub {
+            my $prop  = shift;
+            my $value = shift;
+ 
+            my $method = "set";
+            if ($self->_current) {
+                $self->_current->$method($prop, $value);
+            }
+        };
  
         $_code->() if defined $_code;
         $self->_current_pop;
@@ -143,11 +154,13 @@ sub _warn {
 *_info   = _warn 'info';
 *_on     = _warn 'on';
 *_set    = _warn 'set';
+*_prop   = _warn 'prop';
  
 sub widget { goto &_widget }
 sub info   { goto &_info   }
 sub on     { goto &_on     }
 sub set    { goto &_set    }
+sub prop   { goto &_prop   }
 
 1;
 __END__
@@ -326,8 +339,8 @@ See L<Gtk2> and Gtk2 API reference.
 
 =func set
 
-This function sets properties for specified widget.
-Actually it is same as C<< $widget->set_xxx >>.
+This function calls C<< $widget->set_KEY(VALUE) >> function
+for specified widget.
 See L<Gtk2> and Gtk2 API reference.
 
     my $app = build {
@@ -339,17 +352,35 @@ See L<Gtk2> and Gtk2 API reference.
     };
 
 
+=func prop
+
+This function sets properties for specified widget.
+Actually it is same as C<< $widget->set(KEY, VALUE) >>.
+See L<Gtk2> and Gtk2 API reference.
+
+    my $app = build {
+        widget Window => contain {
+            info id               => 'window';
+            set  position         => 'center';
+            prop title            => 'Window Example';
+            prop opacity          => 0.8;
+            prop 'default-width'  => 640;
+            prop 'default-height' => 480;
+            on   delete_event     => \&quit;
+        };
+    };
+
 
 =func contain
 
-This function is used to set attributes,
-connect signal, add additional information or
-contain children widgets.
+This function is used to set attributes, set properties,
+connect signal, add additional information or contain children widgets.
 
     my $app = build {
         widget Window => contain {
             info   ...
             set    ...
+            prop   ...
             on     ...
             widget ...
         };
