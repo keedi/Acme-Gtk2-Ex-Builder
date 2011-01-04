@@ -63,14 +63,13 @@ sub build (&) {
         my $_code  = shift;
         my @params = @_;
  
-        given ($class) {
-            when ('SimpleList') {
-                require Gtk2::SimpleList;
-            }
-            default {
-            }
+        my $widget;
+        if (ref($class) && $class->isa("Gtk2::Widget")) {
+            $widget = $class;
         }
-        my $widget = "Gtk2::$class"->new(@params);
+        else {
+            $widget = "Gtk2::$class"->new(@params);
+        }
  
         if ($self->_current && ref($self->_current) ne __PACKAGE__) {
             given (ref $self->_current) {

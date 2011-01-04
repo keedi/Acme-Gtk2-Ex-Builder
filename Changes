@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    - Remove needless 'require' statement
+    - Support prebuilt widget variable
 
 0.006     2011-01-03 11:52:50 Asia/Seoul
     - signal_connect: Allow additional data for callback
