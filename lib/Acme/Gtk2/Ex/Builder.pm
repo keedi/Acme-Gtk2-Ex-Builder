@@ -237,6 +237,9 @@ Following code create L<Gtk2::SimpleList> with
 additional C<timestamp>, C<nick> and C<message> parameter.
 See L<Gtk2> and Gtk2 API reference.
 
+    use Gtk2;
+    use Gtk2::SimpleList; # Do NOT forgot!!
+    
     my $app = build {
         widget SimpleList => contain {
             info id              => 'logviewer';
@@ -247,6 +250,26 @@ See L<Gtk2> and Gtk2 API reference.
             nick      => 'markup',
             message   => 'markup',
         );
+    };
+
+It also supports prebuilt widget.
+
+    my $prev_button = Gtk2::Button->new('Prev');
+    my $next_button = Gtk2::Button->new('Next');
+    my $quit_button = Gtk2::Button->new;
+    
+    my $app = build {
+        widget VBox => contain {
+            widget HBox => contain {
+                widget $prev_button;
+                widget $next_button;
+            };
+            widget $next_button => contain {
+                info packing => TRUE, TRUE, 1, 'end';
+                set  label   => 'quit';
+                on   clicked => \&quit_clicked;
+            }
+        };
     };
 
 
